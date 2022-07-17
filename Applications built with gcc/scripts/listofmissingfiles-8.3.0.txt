@@ -1,0 +1,11 @@
+boost
+cmake
+fftw
+hdf
+hdf5
+netcdf
+netcdf-cxx4
+netcdf-fortran
+openblas
+openmpi
+zlib

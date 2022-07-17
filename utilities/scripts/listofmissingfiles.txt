@@ -1,0 +1,9 @@
+archivemount
+git
+grace
+monitor
+parafly
+subversion
+vim
+visit
+vlc

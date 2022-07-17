@@ -1,0 +1,15 @@
+abaqus
+boost
+cmake
+fftw
+hdf
+hdf5
+impi
+netcdf
+netcdf-cxx4
+netcdf-fortran
+openblas
+openmpi
+tcl
+tk
+zlib
