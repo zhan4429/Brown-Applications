@@ -1,5 +1,0 @@
-boost
-fftw
-meep
-parallel-netcdf
-paraview

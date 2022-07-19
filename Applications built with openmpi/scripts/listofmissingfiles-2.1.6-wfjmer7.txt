@@ -1,5 +1,0 @@
-boost
-fftw
-openfoam
-parallel-netcdf
-paraview

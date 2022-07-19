@@ -125,23 +125,31 @@ for eachfolder in $subfoldersarray
 do
    echo "each folder : $eachfolder"
 
-   if [[ "$eachfolder" == "Applications built with gcc/" || "$eachfolder" == "Applications built with intel/" || "$eachfolder" == "Applications built with intel-mpi/" || "$eachfolder" == "Applications built with openmpi/" ]];
+   if [[ "$eachfolder" == "Applications_built_with_gcc/" || "$eachfolder" == "Applications_built_with_intel/" || "$eachfolder" == "Applications_built_with_intel-mpi/" || "$eachfolder" == "Applications_built_with_openmpi/" ]];
    then
       echo "if condition met"
-      echo ".. toctree::" >> $indexfile
-      echo "   :caption: "${eachfolder::-1}"" >> $indexfile
-      echo "   :titlesonly:" >> $indexfile
-      echo "   " >> $indexfile
+      # echo ".. toctree::" >> $indexfile
+      eachfolderwithspaces="${eachfolder//_/ }"
+      # echo "   :caption: "${eachfolderwithspaces::-1}"" >> $indexfile
+      # echo "   :maxdepth: 3" >> $indexfile
+      # echo "   :titlesonly:" >> $indexfile
+      # echo "   " >> $indexfile
       sourcefolder="/home/$USER/Brown-Applications/"$eachfolder"""source/"
-      subfoldersnamearray=`ls "$sourcefolder"`
+      subfoldersnamearray=`ls -1v "$sourcefolder"`
       for eachsubfolder in $subfoldersnamearray
       do
-         echo "   $eachfolder""source/$eachsubfolder/" >> $indexfile
+         echo ".. toctree::" >> $indexfile
+         echo "   :caption: "${eachfolderwithspaces::-1}": $eachsubfolder" >> $indexfile
+         echo "   :titlesonly:" >> $indexfile
+         echo "   " >> $indexfile
+         # echo "   $eachfolder""source/$eachsubfolder/" >> $indexfile
          filenamesarray=`ls "$sourcefolder"/$eachsubfolder`
+
          for eachfile in $filenamesarray
          do
-            echo "      $eachfolder""source/$eachsubfolder/$eachfile/$eachfile" >> $indexfile
+            echo "   $eachfolder""source/$eachsubfolder/$eachfile/$eachfile" >> $indexfile
          done
+         
          echo "" >> $indexfile
       done
 
@@ -149,7 +157,9 @@ do
    else
       echo "if condition not met"
       echo ".. toctree::" >> $indexfile
-      echo "   :caption: "${eachfolder::-1}"" >> $indexfile
+      eachfolderwithspaces="${eachfolder//_/ }"
+      echo "   :caption: "${eachfolderwithspaces::-1}"" >> $indexfile
+      # echo "   :maxdepth: 3" >> $indexfile
       echo "   :titlesonly:" >> $indexfile
       echo "   " >> $indexfile
       sourcefolder="/home/$USER/Brown-Applications/"$eachfolder"""source/"
