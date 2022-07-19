@@ -1,4 +1,4 @@
-RCAC Core documentation
+Scientific Applications on Purdue RCAC Brown Cluster
 ==============================================
 
 This is the list of scientific applications deployed on Purdue Brown cluster. More information about our center is avaiable here (https://www.rcac.purdue.edu/knowledge/brown).
